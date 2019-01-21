@@ -1,5 +1,17 @@
-// Inside `burger.js`, import `orm.js` into `burger.js`
+module.exports = function (sequelize, DataTypes) {
+  var Burger = sequelize.define("Burger", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    devoured: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
+  });
+  return Burger;
+};
 
-// Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
-
-// Export at the end of the `burger.js` file.
